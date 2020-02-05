@@ -122,4 +122,6 @@ dmypy.json
 /.idea
 /venv
 venv/
+test/
+
 # End of https://www.gitignore.io/api/django
