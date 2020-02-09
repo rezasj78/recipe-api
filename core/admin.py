@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from core import models
-from django.utils.translation import gettext
+from django.utils.translation import gettext as _
 
 
 class UserAdmin(BaseUserAdmin):
@@ -10,9 +10,9 @@ class UserAdmin(BaseUserAdmin):
     list_display = ['email', 'name']
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (('personal Info'), {'fields': ('name',)}),
-        (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
-        (('Important dates'), {'fields': ('last_login',)})
+        (_('personal Info'), {'fields': ('name',)}),
+        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
+        (_('Important dates'), {'fields': ('last_login',)})
     )
     add_fieldsets = (
         (None, {'classes': ('wide',), 'fields': ('email', 'password1', 'password2')}),
@@ -20,3 +20,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.User, UserAdmin)
+admin.site.register(models.Tag)
